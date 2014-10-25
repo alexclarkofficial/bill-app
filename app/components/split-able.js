@@ -5,7 +5,6 @@ export default Ember.Component.extend({
     split: function() {
       var lineItemID = this.get("content");
       this.sendAction('split', lineItemID);
-
     }
   }
 });
