@@ -3,14 +3,12 @@
     {{#draggable-dropzone dropped="showDrop"}}
       <div class="cart" {{bind-attr class="isHidden"}}>
         <div class="line">
-          <div class="cell">{{name}}</div>
+          <div class="cell"><h2>{{name}}</h2></div>
         </div>
         {{#each lineItem in lineItems itemController="line-item"}}
           {{line-item lineItem=lineItem}}
         {{/each}}
-        <div class="line">
-            <div class="cell">Total: {{total}}</div>
-        </div>
+        <div class="cart-total">Total: {{total}}</div>
         <button {{action "closeCart"}}>Pay Now</button>
       </div>
     {{/draggable-dropzone}}

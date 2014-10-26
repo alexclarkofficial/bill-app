@@ -1,6 +1,6 @@
-{{#draggable-item content=lineItem.id}}
+{{#draggable-item lineItemID=lineItem.id cartID=lineItem.cart}}
   <div class="cell">{{lineItem.qty}}</div>
-  <div class="cell">{{lineItem.item.name}}</div>
-  <div class="cell">{{lineItem.item.price}}</div>
-  <div class="cell">{{extendedPrice}}</div>
+  <div class="cell">{{lineItem.name}}</div>
+  <div class="cell">{{lineItem.price}}</div>
+  <div class="cell">{{lineItem.extendedPrice}}</div>
 {{/draggable-item}}

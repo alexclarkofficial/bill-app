@@ -24,19 +24,19 @@ var CARTS = [
 LINEITEMS = [
   {
     id: 1,
-    item: 1,
+    menuItem: 1,
     qty: 1,
     cart_id: 1
   },
   {
     id: 2,
-    item: 2,
+    menuItem: 2,
     qty: 3,
     cart_id: 1
   },
   {
     id: 3,
-    item: 3,
+    menuItem: 3,
     qty: 4,
     cart_id: 1
   }

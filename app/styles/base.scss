@@ -1,4 +1,6 @@
 $red: #E54028;
+$white: #FAFAFB;
+$black: #2C2C2C;
 
 *, *:before, *:after {
   overflow: auto;
@@ -8,13 +10,14 @@ $red: #E54028;
 html, body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: helvetica neue, sans-serif;
+  background-color: $black;
 }
 
 button {
   padding: 10px;
   border: 0;
-  border-radius: 0;
+  border-radius: 10px;
   color: #FFF;
   background-color: $red;
 }

@@ -1,9 +1,9 @@
-import Ember from "ember";
+import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ["draggable-dropzone"],
-  classNameBindings: ["dragClass"],
-  dragClass: "deactivated",
+  classNames: ['draggable-dropzone'],
+  classNameBindings: ['dragClass'],
+  dragClass: 'deactivated',
 
   dragLeave: function(event) {
     event.preventDefault();
@@ -17,7 +17,7 @@ export default Ember.Component.extend({
 
   drop: function(event) {
     this.set('dragClass', 'deactivated');
-    var data = event.dataTransfer.getData("text/data");
+    var data = event.dataTransfer.getData('text/data');
     this.sendAction('dropped', data);
   }
 });
