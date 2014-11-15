@@ -1,8 +1,10 @@
 <section>
   {{#each}}
     {{#draggable-dropzone cart=this moveItem='moveItem'}}
-      {{cart-obj cart=this}}
+      {{#if this.isCurrent}}
+        {{cart-obj cart=this lineItems=lineItems action="closeCart" cartObject=this}}
+      {{/if}}
     {{/draggable-dropzone}}
   {{/each}}
-  <button {{action "addCart"}}>New Guest</button>
+  {{!-- <button {{action "addCart"}}>New Guest</button> --}}
 </section>

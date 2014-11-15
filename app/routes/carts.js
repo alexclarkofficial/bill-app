@@ -7,10 +7,15 @@ export default Ember.Route.extend({
 
   actions: {
     addCart: function() {
-      var newCart = { name: 'Guest', visible: '' };
+      var newCart = { isCheck: false, isCurrent: true };
       newCart = this.store.createRecord('cart', newCart);
-      newCart.save();
-      this.set('cart', '');
+      // newCart.save();
+      // What does this next line do??
+      // this.set('cart', '');
+    },
+    closeCart: function(cartObject) {
+      this.send('addCart');
+      cartObject.set('isCurrent', false);
     },
 
     moveItem: function(lineItemID, cart) {

@@ -1,5 +1,13 @@
 <div class="line">
-  <div class="cell"><h2>{{cart.name}}</h2></div>
+  <div class="cell">
+    <h2>
+      {{#if cart.isCheck}}
+        Check
+      {{else}}
+        Your cart
+      {{/if}}
+    </h2>
+  </div>
 </div>
 {{#each lineItem in cart.lineItems}}
   {{#draggable-item lineItemID=lineItem.id}}
@@ -7,4 +15,6 @@
   {{/draggable-item}}
 {{/each}}
 <div class="cart-total">Total: {{cart.total}}</div>
-<button {{action "closeCart"}}>Pay Now</button>
+{{#unless cart.isCheck}}
+  <button {{action "payNow"}}>Pay Now</button>
+{{/unless}}

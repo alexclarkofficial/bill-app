@@ -14,5 +14,10 @@ export default Ember.Component.extend({
     this.$('').droppable({
       accept: '.row'
     });
+
+  actions: {
+    payNow: function() {
+      this.sendAction('action', this.get('cartObject'));
+    }
   }
 });
