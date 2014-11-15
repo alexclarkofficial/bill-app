@@ -1,3 +1,6 @@
+.row {
+  overflow: hidden;
+}
 .cart {
   margin: 10px 0;
   padding: 2em;
@@ -9,5 +12,6 @@
   float: right;
   padding: 1em;
   background-color: $black;
+  border-radius: 10px;
   color: $white;
 }

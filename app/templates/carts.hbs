@@ -1,17 +1,6 @@
 <section>
   {{#each}}
-    {{#draggable-dropzone dropped="showDrop"}}
-      <div class="cart" {{bind-attr class="isHidden"}}>
-        <div class="line">
-          <div class="cell"><h2>{{name}}</h2></div>
-        </div>
-        {{#each lineItem in lineItems itemController="line-item"}}
-          {{line-item lineItem=lineItem}}
-        {{/each}}
-        <div class="cart-total">Total: {{total}}</div>
-        <button {{action "closeCart"}}>Pay Now</button>
-      </div>
-    {{/draggable-dropzone}}
+    {{cart-obj cart=this lineItems=lineItems}}
   {{/each}}
-  <button {{action "openCart"}}>New Guest</button>
+  <button {{action "addCart"}}>New Guest</button>
 </section>

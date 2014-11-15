@@ -16,7 +16,7 @@ var CARTS = [
   {
     id: 1,
     name: 'Check',
-    isHidden: false,
+    isOpen: true,
     lineItem_ids: [1, 2, 3]
   }
 ],

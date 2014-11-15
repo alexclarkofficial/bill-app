@@ -1,23 +1,27 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ['draggable-dropzone'],
-  classNameBindings: ['dragClass'],
-  dragClass: 'deactivated',
 
-  dragLeave: function(event) {
-    event.preventDefault();
-    this.set('dragClass', 'deactivated');
+  didInsertElement: function() {
+    this.$('.cart').droppable({
+      accept: '.row'
+
+    });
   },
 
-  dragOver: function(event) {
-    event.preventDefault();
-    this.set('dragClass', 'activated');
-  },
+  // dragLeave: function(event) {
+  //   event.preventDefault();
+  //   this.set('dragClass', 'deactivated');
+  // },
 
-  drop: function(event) {
-    this.set('dragClass', 'deactivated');
-    var data = event.dataTransfer.getData('text/data');
-    this.sendAction('dropped', data);
-  }
+  // dragOver: function(event) {
+  //   event.preventDefault();
+  //   this.set('dragClass', 'activated');
+  // },
+
+  // drop: function(event) {
+  //   this.set('dragClass', 'deactivated');
+  //   var data = event.dataTransfer.getData('text/data');
+  //   this.sendAction('dropped', data);
+  // }
 });
