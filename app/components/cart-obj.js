@@ -9,4 +9,10 @@ export default Ember.Component.extend({
       return total + lineItem.get('extendedPrice');
     }, 0);
   }.property('lineItems.@each.extendedPrice'),
+
+  actions: {
+    payNow: function() {
+      this.sendAction('action', this.get('cartObject'));
+    }
+  }
 });

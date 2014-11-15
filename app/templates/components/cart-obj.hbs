@@ -4,7 +4,7 @@
       {{#if cart.isCheck}}
         Check
       {{else}}
-        Guest
+        Your cart
       {{/if}}
     </h2>
   </div>
@@ -14,5 +14,5 @@
 {{/each}}
 <div class="cart-total">Total: {{cart.total}}</div>
 {{#unless cart.isCheck}}
-  <button {{action "closeCart"}}>Pay Now</button>
+  <button {{action "payNow"}}>Pay Now</button>
 {{/unless}}
