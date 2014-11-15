@@ -1,8 +1,18 @@
 <div class="line">
-  <div class="cell"><h2>{{cart.name}}</h2></div>
+  <div class="cell">
+    <h2>
+      {{#if cart.isCheck}}
+        Check
+      {{else}}
+        Guest
+      {{/if}}
+    </h2>
+  </div>
 </div>
 {{#each lineItem in lineItems}}
   {{line-item lineItem=lineItem}}
 {{/each}}
 <div class="cart-total">Total: {{cart.total}}</div>
-<button {{action "closeCart"}}>Pay Now</button>
+{{#unless cart.isCheck}}
+  <button {{action "closeCart"}}>Pay Now</button>
+{{/unless}}

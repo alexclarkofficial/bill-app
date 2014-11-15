@@ -15,9 +15,14 @@ module.exports = function(app) {
 var CARTS = [
   {
     id: 1,
-    name: 'Check',
+    isCheck: true,
     isOpen: true,
     lineItem_ids: [1, 2, 3]
+  },
+  {
+    id: 2,
+    isCheck: false,
+    isOpen: true,
   }
 ],
 
