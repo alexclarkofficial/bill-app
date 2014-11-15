@@ -10,6 +10,11 @@ export default Ember.Component.extend({
     }, 0);
   }.property('lineItems.@each.extendedPrice'),
 
+  didInsertElement: function() {
+    this.$('').droppable({
+      accept: '.row'
+    });
+
   actions: {
     payNow: function() {
       this.sendAction('action', this.get('cartObject'));

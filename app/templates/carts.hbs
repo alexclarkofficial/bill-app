@@ -1,6 +1,6 @@
 <section>
   {{#each}}
-    {{#draggable-dropzone}}
+    {{#draggable-dropzone cart=this moveItem='moveItem'}}
       {{#if this.isCurrent}}
         {{cart-obj cart=this lineItems=lineItems action="closeCart" cartObject=this}}
       {{/if}}

@@ -9,8 +9,10 @@
     </h2>
   </div>
 </div>
-{{#each lineItem in lineItems}}
-  {{line-item lineItem=lineItem}}
+{{#each lineItem in cart.lineItems}}
+  {{#draggable-item lineItemID=lineItem.id}}
+    {{line-item lineItem=lineItem}}
+  {{/draggable-item}}
 {{/each}}
 <div class="cart-total">Total: {{cart.total}}</div>
 {{#unless cart.isCheck}}
