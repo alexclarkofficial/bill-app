@@ -32,7 +32,7 @@ export default Ember.Route.extend({
           menuItem: menuItem,
           cart: cart
         });
-        movedItem.save()
+        movedItem.save();
       });
     }
   }

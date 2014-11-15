@@ -8,7 +8,7 @@ export default Ember.Component.extend({
     this.$().droppable({
       drop: function(event, ui) {
         var lineItemID = ui.draggable.data('lineItemID');
-        self.sendAction('moveItem', lineItemID, self.cart)
+        self.sendAction('moveItem', lineItemID, self.cart);
       },
     });
   },
