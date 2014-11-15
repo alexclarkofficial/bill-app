@@ -5,7 +5,6 @@ export default Ember.Component.extend({
   didInsertElement: function() {
     this.$('.cart').droppable({
       accept: '.row'
-
     });
   },
 
