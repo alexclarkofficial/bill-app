@@ -25,7 +25,6 @@ export default Ember.Route.extend({
       this.store.find('lineItem', lineItemID).then(function(lineItem) {
         menuItem = lineItem.get('menuItem');
 
-        lineItem.decrementProperty('qty');
 
         var movedItem = self.store.createRecord('lineItem', {
           qty: 1,
@@ -33,6 +32,11 @@ export default Ember.Route.extend({
           cart: cart
         });
         movedItem.save();
+        if (lineItem.get('qty') === 1) {
+          lineItem.destroyRecord();
+        } else  {
+          lineItem.decrementProperty('qty');
+        }
       });
     }
   }
