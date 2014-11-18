@@ -9,10 +9,9 @@ export default Ember.Route.extend({
     addCart: function() {
       var newCart = { isCheck: false, isCurrent: true };
       newCart = this.store.createRecord('cart', newCart);
-      // newCart.save();
-      // What does this next line do??
-      // this.set('cart', '');
+      newCart.save();
     },
+
     closeCart: function(cartObject) {
       this.send('addCart');
       cartObject.set('isCurrent', false);
@@ -25,13 +24,19 @@ export default Ember.Route.extend({
       this.store.find('lineItem', lineItemID).then(function(lineItem) {
         menuItem = lineItem.get('menuItem');
 
-
-        var movedItem = self.store.createRecord('lineItem', {
-          qty: 1,
-          menuItem: menuItem,
-          cart: cart
+        cart.get('lineItems').then(function(lineItems) {
+          var inCartItem = lineItems.filterBy('menuItem', menuItem)
+          if (inCartItem.length) {
+            inCartItem.objectAt(0).incrementProperty('qty')
+          } else {
+            self.store.createRecord('lineItem', {
+              cart: cart,
+              menuItem: menuItem,
+              qty: 1
+            });
+          };
         });
-        movedItem.save();
+
         if (lineItem.get('qty') === 1) {
           lineItem.destroyRecord();
         } else  {
