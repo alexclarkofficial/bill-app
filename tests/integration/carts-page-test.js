@@ -1,18 +1,24 @@
-import startApp from "../helpers/start-app";
-import Ember from "ember";
+import startApp from '../helpers/start-app';
+import Ember from 'ember';
 
 var App, server;
 
-module("Integration - Carts Page", {
+module('Integration - Carts Page', {
   setup: function() {
     App = startApp();
     var CARTS = [
-
       {
         id: 1,
-        name: 'Check',
+        isCheck: true,
         isOpen: true,
+        isCurrent: true,
         lineItem_ids: [1, 2, 3]
+      },
+      {
+        id: 2,
+        isCheck: false,
+        isCurrent: true,
+        isOpen: true,
       }
     ],
 
@@ -40,17 +46,17 @@ module("Integration - Carts Page", {
     MENUITEMS = [
       {
         id: 1,
-        name: "Steak",
+        name: 'Steak',
         price: 19.99
       },
       {
         id: 2,
-        name: "Lobster",
+        name: 'Lobster',
         price: 29.99,
       },
       {
         id: 3,
-        name: "Beers",
+        name: 'Beers',
         price: 4.99,
       },
     ];
@@ -58,7 +64,7 @@ module("Integration - Carts Page", {
     server = new Pretender(function(){
       this.get('/api/carts', function(request){
         var all =  JSON.stringify({ carts: CARTS, line_items: LINEITEMS, menu_items: MENUITEMS });
-        return [200, {"Content-Type": "application/json"}, all];
+        return [200, {'Content-Type': 'application/json'}, all];
       });
     });
   },
@@ -70,8 +76,16 @@ module("Integration - Carts Page", {
 });
 
 test('Should list all carts', function() {
-  visit("/").then(function() {
-    equal(find('.cart').length, 1);
-    equal(find('h2').length, 1);
+  visit('/').then(function() {
+    equal(find('.spec-cart').length, 2);
+    equal(find('h2').length, 2);
+  });
+});
+
+test('Should create new cart on payment', function() {
+  visit('/').then(function() {
+    click('.spec-pay-btn').then(function() {
+      equal(find('.spec-cart').length, 3);
+    });
   });
 });

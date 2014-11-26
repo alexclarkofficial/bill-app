@@ -4,5 +4,11 @@ export default DS.Model.extend({
   isCheck: DS.attr('boolean'),
   isOpen: DS.attr('boolean', {defaultValue: false}),
   isCurrent: DS.attr('boolean'),
-  lineItems: DS.hasMany('lineItem', { async: true })
+  lineItems: DS.hasMany('lineItem', { async: true }),
+
+  total: function() {
+    return this.get('lineItems').reduce(function(total, item) {
+      return total + item.get('extendedPrice');
+    }, 0);
+  }.property('lineItems.@each.extendedPrice')
 });

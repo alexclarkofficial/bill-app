@@ -65,5 +65,4 @@ MENUITEMS = [
     name: "Beers",
     price: 4.99,
   },
-]
-
+];

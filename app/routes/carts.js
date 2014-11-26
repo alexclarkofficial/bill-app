@@ -25,16 +25,16 @@ export default Ember.Route.extend({
         menuItem = lineItem.get('menuItem');
 
         cart.get('lineItems').then(function(lineItems) {
-          var inCartItem = lineItems.filterBy('menuItem', menuItem)
+          var inCartItem = lineItems.filterBy('menuItem', menuItem);
           if (inCartItem.length) {
-            inCartItem.objectAt(0).incrementProperty('qty')
+            inCartItem.objectAt(0).incrementProperty('qty');
           } else {
             self.store.createRecord('lineItem', {
               cart: cart,
               menuItem: menuItem,
               qty: 1
             });
-          };
+          }
         });
 
         if (lineItem.get('qty') === 1) {
