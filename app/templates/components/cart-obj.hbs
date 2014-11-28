@@ -14,7 +14,7 @@
     {{line-item lineItem=lineItem}}
   {{/draggable-item}}
 {{/each}}
-<div class="cart-total">Total: {{cart.total}}</div>
+<div class="cart-total">Total: {{money-display cart.total}}</div>
 {{#unless cart.isCheck}}
   <button {{action 'payNow'}} class="spec-pay-btn">Pay Now</button>
 {{/unless}}

@@ -18,8 +18,8 @@ export default Ember.Route.extend({
     },
 
     moveItem: function(lineItemID, cart) {
-      var self = this;
-      var menuItem;
+      var self = this,
+        menuItem;
 
       this.store.find('lineItem', lineItemID).then(function(lineItem) {
         menuItem = lineItem.get('menuItem');

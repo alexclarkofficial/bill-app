@@ -53,16 +53,16 @@ MENUITEMS = [
   {
     id: 1,
     name: "Steak",
-    price: 19.99
+    price: 1999
   },
   {
     id: 2,
     name: "Lobster",
-    price: 29.99,
+    price: 2999,
   },
   {
     id: 3,
     name: "Beers",
-    price: 4.99,
+    price: 499,
   },
 ];
