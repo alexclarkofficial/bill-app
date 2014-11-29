@@ -10,7 +10,6 @@ export default Ember.Component.extend({
       helper: 'clone',
       start: function(event, ui) {
         $('.ui-draggable-dragging').find('.quantity').text(1);
-        console.log($('.ui-draggable-dragging').find('.quantity')[0]);
       },
     }).data('lineItemID', this.lineItemID);
   }
