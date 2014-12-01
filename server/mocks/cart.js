@@ -19,12 +19,6 @@ var CARTS = [
     isOpen: true,
     isCurrent: true,
     lineItem_ids: [1, 2, 3]
-  },
-  {
-    id: 2,
-    isCheck: false,
-    isCurrent: true,
-    isOpen: true,
   }
 ],
 

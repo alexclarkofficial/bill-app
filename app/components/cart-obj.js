@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ['spec-cart', 'cart'],
 
   total: function() {
     var lineItems = this.get('lineItems');

@@ -2,24 +2,20 @@ import Ember from "ember";
 
 export default Ember.Route.extend({
   model: function() {
-    return this.store.find('cart');
+    return this.store.find('cart').then(function (result) {
+  return result.get('firstObject');
+});
   },
 
   actions: {
-    addCart: function() {
-      var newCart = { isCheck: false, isCurrent: true };
-      newCart = this.store.createRecord('cart', newCart);
-      newCart.save();
-    },
 
-    closeCart: function(cartObject) {
-      this.send('addCart');
-      cartObject.set('isCurrent', false);
+    addCart: function() {
+      this.transitionTo('check.newCustomer');
     },
 
     moveItem: function(lineItemID, cart) {
-      var self = this,
-        menuItem;
+      var menuItem,
+      self = this;
 
       this.store.find('lineItem', lineItemID).then(function(lineItem) {
         menuItem = lineItem.get('menuItem');
