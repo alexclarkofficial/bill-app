@@ -1,0 +1,15 @@
+<div class="cart">
+{{#draggable-dropzone cart=content moveItem='moveItem'}}
+  <div class="line">
+    <div class="cell">
+      <h2>
+        Check
+      </h2>
+    </div>
+  </div>
+  {{cart-obj cart=content lineItems=lineItems cartObject=this}}
+{{/draggable-dropzone}}
+</div>
+{{outlet}}
+<button {{action "addCart"}} class="spec-open-btn">New Customer</button>
+

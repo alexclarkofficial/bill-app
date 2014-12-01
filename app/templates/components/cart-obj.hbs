@@ -1,20 +1,6 @@
-<div class="line">
-  <div class="cell">
-    <h2>
-      {{#if cart.isCheck}}
-        Check
-      {{else}}
-        Your cart
-      {{/if}}
-    </h2>
-  </div>
-</div>
-{{#each lineItem in cart.lineItems}}
-  {{#draggable-item lineItemID=lineItem.id}}
-    {{line-item lineItem=lineItem}}
-  {{/draggable-item}}
-{{/each}}
-<div class="cart-total">Total: {{money-display cart.total}}</div>
-{{#unless cart.isCheck}}
-  <button {{action 'payNow'}} class="spec-pay-btn">Pay Now</button>
-{{/unless}}
+  {{#each lineItem in cart.lineItems}}
+    {{#draggable-item lineItemID=lineItem.id}}
+      {{line-item lineItem=lineItem}}
+    {{/draggable-item}}
+  {{/each}}
+  <div class="cart-total">Total: {{money-display cart.total}}</div>
