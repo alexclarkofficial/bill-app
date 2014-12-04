@@ -6,7 +6,7 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    closeCart: function(cartObject) {
+    closeCart: function() {
       this.transitionTo('check');
     }
   }
