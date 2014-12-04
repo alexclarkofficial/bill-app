@@ -2,9 +2,9 @@ import Ember from "ember";
 
 export default Ember.Route.extend({
   model: function() {
-    return this.store.find('cart').then(function (result) {
-  return result.get('firstObject');
-});
+    return this.store.find('cart').then(function(result) {
+      return result.get('firstObject');
+    });
   },
 
   actions: {
